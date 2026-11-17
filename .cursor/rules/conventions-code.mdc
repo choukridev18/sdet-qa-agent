@@ -1,0 +1,15 @@
+---
+description: Conventions de code Python SDET (noms anglais, typage, petits modules)
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Conventions de code
+
+- Noms, commentaires, docstrings et messages de commit en **anglais**.
+- Type hints sur les fonctions publiques ; viser mypy.
+- Fonctions courtes, un rôle clair ; pas de logique métier dans les routes.
+- Erreurs : messages lisibles, pas d'except silencieux.
+- Secrets uniquement via l'environnement, jamais dans le code.
+- Modèle LLM derrière une interface, pour pouvoir le mocker.
+- Tests déterministes sans réseau ni clé API (sauf le banc d'essai).
