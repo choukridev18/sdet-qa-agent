@@ -15,6 +15,10 @@ test-results/
 node_modules/
 .DS_Store
 docs/whatsapp-recu/
-docs/suivi/mon-build.md
+docs/suivi/
+docs/etapes/
 docs/projet-sdet-brief.md
+docs/DECISIONS.md
+.cursor/
+AGENTS.md
 *.opus
