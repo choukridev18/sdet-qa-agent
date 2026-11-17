@@ -1,7 +1,7 @@
 # Progression
 
 - **Étape en cours :** 0 — Mise en place
-- **Tâche en cours :** étape 0.2 — compte API Anthropic (paiement, workspace, plafond, clé dans `.env`)
+- **Tâche en cours :** étape 0.2 — compte API Anthropic **en pause** (pas de paiement aujourd’hui). GitHub public OK : https://github.com/choukridev18/sdet-qa-agent
 - **Dernière étape validée :** aucune
 - **Version minimale présentable :** fin d'étape 5
 
