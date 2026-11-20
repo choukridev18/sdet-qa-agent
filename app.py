@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, session
 
 app = Flask(__name__)
+app.secret_key = "dev"
 
 
 @app.route("/")
@@ -26,3 +27,16 @@ def product(slug):
         price = 0
 
     return render_template("product.html", slug=slug, price=price)
+
+
+@app.route("/cart")
+def cart():
+    return render_template("cart.html", cart_items=session.get("cart", []))
+
+
+@app.route("/cart/add/<slug>", methods=["POST"])
+def add_to_cart(slug):
+    items = list(session.get("cart", []))
+    items.append(slug)
+    session["cart"] = items
+    return redirect("/cart")

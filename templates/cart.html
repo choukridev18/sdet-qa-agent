@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<h1>panier</h1>
+
+{% if cart_items %}
+  {% for slug in cart_items %}
+  <p>{{ slug }}</p>
+  {% endfor %}
+{% else %}
+  <p>Votre panier est vide</p>
+{% endif %}
+
+
+<a href="/catalog">Retour au catalogue </a>

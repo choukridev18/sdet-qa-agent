@@ -5,4 +5,10 @@
 
 
 
-<a href="/catalog">Retour au catalogue</a>
+<p><a href="/catalog">Retour au catalogue</a></p>
+
+<form action="/cart/add/{{ slug }}" method="post">
+    <button type="submit">Add to cart</button>
+</form>
+
+<p class="panier"><a href="/cart">Voir le panier</a></p>
