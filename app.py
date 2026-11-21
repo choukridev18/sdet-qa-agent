@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, session
+from flask import Flask, render_template, redirect, session, request
 
 app = Flask(__name__)
 app.secret_key = "dev"
@@ -19,7 +19,14 @@ def home():
 
 @app.route("/catalog")
 def catalog():
-    return render_template("catalog.html", liste_articles=PRODUCTS)
+    query = request.args.get("q", "")
+    articles = PRODUCTS
+    if query:
+        articles = {}
+        for name, price in PRODUCTS.items():
+            if query.lower() in name.lower():
+                articles[name] = price
+    return render_template("catalog.html", liste_articles=articles)
 
 
 @app.route("/product/<slug>")
