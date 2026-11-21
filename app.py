@@ -43,3 +43,9 @@ def add_to_cart(slug):
     items.append({"slug": slug, "price": PRODUCTS.get(slug, 0)})
     session["cart"] = items
     return redirect("/cart")
+
+
+@app.route("/cart/clear", methods=["POST"])
+def clear():
+    session["cart"] = []
+    return redirect("/cart")
