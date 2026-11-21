@@ -3,6 +3,13 @@ from flask import Flask, render_template, redirect, session
 app = Flask(__name__)
 app.secret_key = "dev"
 
+PRODUCTS = {
+    "tshirt": 20,
+    "mug": 8,
+    "glove": 16,
+    "scarf": 6,
+}
+
 
 @app.route("/")
 def home():
@@ -17,26 +24,22 @@ def catalog():
 
 @app.route("/product/<slug>")
 def product(slug):
-    if slug == "tshirt":
-        price = 20
-    elif slug == "mug":
-        price = 8
-    elif slug == "glove":
-        price = 16
-    else:
-        price = 0
-
+    price = PRODUCTS.get(slug, 0)
     return render_template("product.html", slug=slug, price=price)
 
 
 @app.route("/cart")
 def cart():
-    return render_template("cart.html", cart_items=session.get("cart", []))
+    list_products = session.get("cart", [])
+    somme_total = 0
+    for i in list_products:
+        somme_total += i["price"]
+    return render_template("cart.html", cart_items=list_products, total=somme_total)
 
 
 @app.route("/cart/add/<slug>", methods=["POST"])
 def add_to_cart(slug):
     items = list(session.get("cart", []))
-    items.append(slug)
+    items.append({"slug": slug, "price": PRODUCTS.get(slug, 0)})
     session["cart"] = items
     return redirect("/cart")

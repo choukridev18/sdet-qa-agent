@@ -3,9 +3,10 @@
 <h1>panier</h1>
 
 {% if cart_items %}
-  {% for slug in cart_items %}
-  <p>{{ slug }}</p>
+  {% for item in cart_items %}
+  <p>{{ item.slug|capitalize }} / Prix: {{ item.price }} EUR</p>
   {% endfor %}
+  <p> Total: {{ total }} EUR </p>
 {% else %}
   <p>Votre panier est vide</p>
 {% endif %}
