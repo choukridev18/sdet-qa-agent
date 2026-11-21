@@ -19,7 +19,7 @@ def home():
 
 @app.route("/catalog")
 def catalog():
-    return render_template("catalog.html")
+    return render_template("catalog.html", liste_articles=PRODUCTS)
 
 
 @app.route("/product/<slug>")
