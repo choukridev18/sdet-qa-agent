@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/static/style.css">
+<h1>Login</h1>
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<form action="/login" method="post">
+    <input name="username">
+    <input name="password" type="password" id="password">
+    <button type="button" id="eye">👁️</button>
+    <button type="submit"> Connexion </button>
+    
+</form>
+
+<a href="/"> Accueil</a>
+
+<script>
+    const eye = document.getElementById("eye") ;
+    const field= document.getElementById("password") ;
+    eye.addEventListener("click",function()
+    {if(field.type == "password")
+    {field.type="text";}
+    else{field.type = "password"}}) ;
+</script>
+

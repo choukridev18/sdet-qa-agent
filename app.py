@@ -13,8 +13,9 @@ PRODUCTS = {
 
 @app.route("/")
 def home():
+    user = session.get("user", "")
 
-    return render_template("home.html")
+    return render_template("home.html", user=user)
 
 
 @app.route("/catalog")
@@ -56,3 +57,24 @@ def add_to_cart(slug):
 def clear():
     session["cart"] = []
     return redirect("/cart")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    error = ""
+    if request.method == "POST":
+        username = request.form.get("username", "")
+        password = request.form.get("password", "")
+        if username == "choukri" and password == "testeur":
+            session["user"] = username
+            return redirect("/")
+        else:
+            error = "Invalid username or password"
+
+    return render_template("login.html", error=error)
+
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    session["user"] = ""
+    return redirect("/")

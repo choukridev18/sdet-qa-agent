@@ -1,4 +1,17 @@
 <link rel="stylesheet" href="/static/style.css">
 <h1>Jungle Shop </h1>
+
+{% if user %}
+<p> Welcome {{ user }}</p>
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
+{% else %}
+<p><a href="/login">Login</a></p>
+
+{% endif %}
+
 <p class="bienvenue"><strong>Welcome to the shop.</strong></p> 
-<a href="/catalog">Voir le catalogue</a>
+
+
+<p><a href="/catalog">Voir le catalogue</a></p>
