@@ -6,9 +6,11 @@
   {% for item in cart_items %}
   <p>{{ item.slug|capitalize }} / Prix: {{ item.price }} EUR</p>
   
+  
   {% endfor %}
   
   <p> <mark> Total</mark> {{ total }} EUR </p>
+  <p><a href="/checkout">Passer commande</a></p>
   <form action="/cart" method="post">
     <input name="promo">
     <button type="submit">Code Promo</button>

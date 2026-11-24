@@ -89,3 +89,17 @@ def logout():
     session["user"] = ""
     session["promo"] = ""
     return redirect("/")
+
+
+@app.route("/checkout", methods=["GET", "POST"])
+def checkout():
+    message = ""
+    if request.method == "POST":
+        name = request.form.get("name", "")
+        address = request.form.get("address", "")
+        if name != "" and address != "":
+            session["cart"] = []
+            session["promo"] = ""
+            message = "Merci pour vos achats"
+
+    return render_template("checkout.html", message=message)

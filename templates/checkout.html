@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<h1>Checkout</h1>
+{% if message %}
+<p>{{message}} </p>
+{% else %}
+<form action="/checkout" method="post">
+    <p><label for="name">Name</label>
+    <textarea id="name" name="name" rows="2"></textarea></p>
+    <p><label for="address">Address</label>
+    <textarea id="address" name="address" rows="4"></textarea></p>
+    <button type="submit">Confirmer</button>
+
+</form>
+{% endif %}
+
+<a href="/cart">Retour au panier</a>
