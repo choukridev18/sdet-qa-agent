@@ -36,12 +36,22 @@ def product(slug):
     return render_template("product.html", slug=slug, price=price)
 
 
-@app.route("/cart")
+@app.route("/cart", methods=["GET", "POST"])
 def cart():
     list_products = session.get("cart", [])
     somme_total = 0
     for i in list_products:
         somme_total += i["price"]
+    if request.method == "POST":
+        promo = request.form.get("promo", "")
+        if promo == "CHOUKRI47":
+            if session.get("user", ""):
+                session["promo"] = promo
+            else:
+                somme_total *= 0.9
+
+    if session.get("promo", "") == "CHOUKRI47" and session.get("user", ""):
+        somme_total *= 0.9
     return render_template("cart.html", cart_items=list_products, total=somme_total)
 
 
@@ -77,4 +87,5 @@ def login():
 @app.route("/logout", methods=["POST"])
 def logout():
     session["user"] = ""
+    session["promo"] = ""
     return redirect("/")

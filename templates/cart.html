@@ -5,13 +5,20 @@
 {% if cart_items %}
   {% for item in cart_items %}
   <p>{{ item.slug|capitalize }} / Prix: {{ item.price }} EUR</p>
+  
   {% endfor %}
+  
   <p> <mark> Total</mark> {{ total }} EUR </p>
+  <form action="/cart" method="post">
+    <input name="promo">
+    <button type="submit">Code Promo</button>
+  </form>
+
   <form action="/cart/clear" method="post">
     <button type= "submit"> Vider le panier</button>
 
   </form>
-
+  
 {% else %}
   <p>Votre panier est vide</p>
 {% endif %}
