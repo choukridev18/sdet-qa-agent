@@ -94,6 +94,7 @@ def logout():
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
     message = ""
+    error_message = ""
     if request.method == "POST":
         name = request.form.get("name", "")
         address = request.form.get("address", "")
@@ -101,5 +102,9 @@ def checkout():
             session["cart"] = []
             session["promo"] = ""
             message = "Merci pour vos achats"
+        else:
+            error_message = "Veuillez renseigner les champs pour confirmer"
 
-    return render_template("checkout.html", message=message)
+    return render_template(
+        "checkout.html", message=message, error_message=error_message
+    )

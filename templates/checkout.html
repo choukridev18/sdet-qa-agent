@@ -4,6 +4,9 @@
 {% if message %}
 <p>{{message}} </p>
 {% else %}
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
 <form action="/checkout" method="post">
     <p><label for="name">Name</label>
     <textarea id="name" name="name" rows="2"></textarea></p>
