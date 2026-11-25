@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/static/style.css">
+
+
+<h1> Nous Contacter</h1>
+{% if message_confirm %}
+<p>{{ message_confirm }}</p>
+{% else %}
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
+
+<form action="/contact" method="post">
+    <label>Name</label>
+    <p><input name="name"></p>
+    <label>Email</label>
+    <p><input name="email"></p>
+    <label>Votre message</label>
+    <p><textarea id="message" name ="message" rows="8" ></textarea></p>
+    <button type="submit">Envoyer</button>
+
+</form>
+{% endif %}
+<a href="/"> Accueil</a>

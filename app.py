@@ -108,3 +108,21 @@ def checkout():
     return render_template(
         "checkout.html", message=message, error_message=error_message
     )
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    message_confirm = ""
+    error_message = ""
+    if request.method == "POST":
+        name = request.form.get("name", "")
+        email = request.form.get("email", "")
+        message = request.form.get("message", "")
+        if name != "" and email != "" and message != "":
+            message_confirm = "Votre demande à bien été envoyée."
+        else:
+            error_message = "Veuillez renseigner les champs requis"
+
+    return render_template(
+        "contact.html", message_confirm=message_confirm, error_message=error_message
+    )
