@@ -10,14 +10,14 @@
   {% endfor %}
   
   <p> <mark> Total</mark> {{ total }} EUR </p>
-  <p><a href="/checkout">Passer commande</a></p>
+  <p><a href="/checkout" data-testid="link-checkout">Passer commande</a></p>
   <form action="/cart" method="post">
-    <input name="promo">
-    <button type="submit">Code Promo</button>
+    <input name="promo" data-testid="code-promo">
+    <button type="submit" data-testid="promo-submit">Code Promo</button>
   </form>
 
   <form action="/cart/clear" method="post">
-    <button type= "submit"> Vider le panier</button>
+    <button type= "submit" data-testid="empty-submit"> Vider le panier</button>
 
   </form>
   
@@ -28,4 +28,4 @@
 
 
 
-<a href="/catalog">Retour au catalogue </a>
+<a href="/catalog" data-testid="link-catalog">Retour au catalogue </a>

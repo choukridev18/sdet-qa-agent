@@ -4,15 +4,15 @@
 {% if user %}
 <p> Welcome {{ user }}</p>
 <form action="/logout" method="post">
-    <button type="submit">Logout</button>
+    <button type="submit" data-testid="logout-submit" >Logout</button>
 </form>
 {% else %}
-<p><a href="/login">Login</a></p>
+<p><a href="/login" data-testid="link-login">Login</a></p>
 
 {% endif %}
 
 <p class="bienvenue"><strong>Welcome to the shop.</strong></p> 
 
 
-<p><a href="/catalog">Voir le catalogue</a></p>
-<p><a href="/contact">Nous Contacter</a></p>
+<p><a href="/catalog" data-testid="link-catalog">Voir le catalogue</a></p>
+<p><a href="/contact" data-testid="link-contact">Nous Contacter</a></p>

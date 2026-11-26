@@ -9,12 +9,12 @@
 {% endif %}
 <form action="/checkout" method="post">
     <p><label for="name">Name</label>
-    <textarea id="name" name="name" rows="2"></textarea></p>
+    <textarea id="name" name="name" rows="2" data-testid="checkout-name"></textarea></p>
     <p><label for="address">Address</label>
-    <textarea id="address" name="address" rows="4"></textarea></p>
-    <button type="submit">Confirmer</button>
+    <textarea id="address" name="address" rows="4" data-testid="checkout-address"></textarea></p>
+    <button type="submit" data-testid="checkout-submit">Confirmer</button>
 
 </form>
 {% endif %}
 
-<a href="/cart">Retour au panier</a>
+<a href="/cart" data-testid="link-cart">Retour au panier</a>

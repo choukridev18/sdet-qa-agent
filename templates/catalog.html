@@ -2,16 +2,16 @@
 <h1>Liste des produits</h1>
 
 <form action="/catalog" method="get">
-    <input name="q">
-    <button type="submit"> Rechercher</button>
+    <input name="q" data-testid="search-product">
+    <button type="submit" data-testid="search-submit"> Rechercher</button>
 
 </form>
 
 
 {% for name, price in liste_articles.items() %}
-<p><a href="/product/{{name}}"><strong>{{name|capitalize}} : {{price}} EUR</strong></a></p>
+<p><a href="/product/{{name}}" data-testid="product-{{ name }}"><strong>{{name|capitalize}} : {{price}} EUR</strong></a></p>
 {% endfor %}
 
 
-<a href="/">retour à la page principal</a>
+<a href="/" data-testid="link-home">retour à la page principal</a>
 

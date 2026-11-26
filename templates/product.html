@@ -5,10 +5,10 @@
 
 
 
-<p><a href="/catalog">Retour au catalogue</a></p>
+<p><a href="/catalog" data-testid="link-catalog">Retour au catalogue</a></p>
 
 <form action="/cart/add/{{ slug }}" method="post">
-    <button type="submit">Add to cart</button>
+    <button type="submit" data-testid="add-product">Add to cart</button>
 </form>
 
-<p class="panier"><a href="/cart">Voir le panier</a></p>
+<p class="panier"><a href="/cart" data-testid="link-cart">Voir le panier</a></p>

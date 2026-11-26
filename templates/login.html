@@ -4,10 +4,10 @@
 <p>{{ error }}</p>
 {% endif %}
 <form action="/login" method="post">
-    <input name="username">
-    <input name="password" type="password" id="password">
-    <button type="button" id="eye">👁️</button>
-    <button type="submit"> Connexion </button>
+    <input name="username" data-testid="login-username">
+    <input name="password" data-testid="login-password"  type="password" id="password">
+    <button type="button" data-testid="login-eye" id="eye">👁️</button>
+    <button type="submit" data-testid="login-submit" > Connexion </button>
     
 </form>
 
