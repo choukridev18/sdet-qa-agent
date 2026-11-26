@@ -91,6 +91,12 @@ def logout():
     return redirect("/")
 
 
+@app.route("/reset")
+def reset():
+    session.clear()
+    return redirect("/")
+
+
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
     message = ""
