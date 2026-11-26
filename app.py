@@ -97,6 +97,12 @@ def reset():
     return redirect("/")
 
 
+@app.route("/bug/on")
+def bug_on():
+    session["bug"] = "checkout_empty"
+    return redirect("/")
+
+
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
     message = ""
@@ -104,7 +110,7 @@ def checkout():
     if request.method == "POST":
         name = request.form.get("name", "")
         address = request.form.get("address", "")
-        if name != "" and address != "":
+        if session.get("bug", "") == "checkout_empty" or (name != "" and address != ""):
             session["cart"] = []
             session["promo"] = ""
             message = "Merci pour vos achats"
