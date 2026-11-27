@@ -8,6 +8,7 @@ def open_shop():
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
         page.goto(URL)
+        page.get_by_test_id("link-catalog").click()
         input("Entrée pour fermer…")
 
 
