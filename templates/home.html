@@ -2,7 +2,7 @@
 <h1>Jungle Shop </h1>
 
 {% if user %}
-<p> Welcome {{ user }}</p>
+<p data-testid="home-welcome">Welcome {{ user }}</p>
 <form action="/logout" method="post">
     <button type="submit" data-testid="logout-submit" >Logout</button>
 </form>
