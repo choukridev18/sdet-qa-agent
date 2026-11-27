@@ -9,6 +9,9 @@ def open_shop():
         page = browser.new_page()
         page.goto(URL)
         page.get_by_test_id("link-catalog").click()
+        page.get_by_test_id("search-product").fill("mug")
+        page.get_by_test_id("search-submit").click()
+        print(page.inner_text("body"))
         input("Entrée pour fermer…")
 
 
