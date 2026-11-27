@@ -11,6 +11,10 @@ def fill(page, test_id, text):
     page.get_by_test_id(test_id).fill(text)
 
 
+def read(page):
+    return page.inner_text("body")
+
+
 def open_shop():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
@@ -19,7 +23,7 @@ def open_shop():
         click(page, "link-catalog")
         fill(page, "search-product", "mug")
         click(page, "search-submit")
-        print(page.inner_text("body"))
+        print(read(page))
         input("Entrée pour fermer…")
 
 
